@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
  * https://www.acmicpc.net/problem/18870 좌표 압축
  */
 
-public class sort_18870 {
+public class Sort_18870 {
 
 	public static void main(String[] args) throws IOException{
 				BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
