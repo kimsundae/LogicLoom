@@ -23,8 +23,10 @@ public class improvementForBigO {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println( max( new int[] { 3 , 2 , 4 , 7 , 1} ));
-		// 결과값 7
+		int[] array = { 5, 8, 3, 11, 6, 2 };
+        int maxValue = max(array);
+        System.out.println("Maximum value: " + maxValue);
+        // maxValue == 11
 	}
 
 }
