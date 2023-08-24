@@ -5,7 +5,7 @@ package dataStructuresAndAlgo.recursion.dynamicProgramming;
  * 255p. 상향식을 통한 피보나치
  * 
  */
-public class bottomUpFibonacci {
+public class BottomUpFibonacci {
 	
 	public static int fib( int n ) {
 		if( n == 0) return 0;

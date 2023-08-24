@@ -8,7 +8,7 @@ import java.util.Arrays;
  */
 
 
-public class improvementForBigO {
+public class ImprovementForBigO {
 	
 	public static int max( int[] arr ) {
 		//기저조건
