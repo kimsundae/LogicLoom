@@ -1,8 +1,8 @@
-package computerScience;
+package computerScience.process;
 
 import java.io.IOException;
 
-public class learningProcess_2 {
+public class LearningProcess_2 {
 	public static void main(String[] args)  throws IOException{
 		/*
 		 *  ProcessHandle.current().pid() -> 프로세스의 PID값 확인 메소드

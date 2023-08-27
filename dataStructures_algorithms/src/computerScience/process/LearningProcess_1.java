@@ -1,6 +1,6 @@
-package computerScience;
+package computerScience.process;
 
-public class learningProcess_1 {
+public class LearningProcess_1 {
 
 	public static void main(String[] args) {
 		System.out.println("hello os");
