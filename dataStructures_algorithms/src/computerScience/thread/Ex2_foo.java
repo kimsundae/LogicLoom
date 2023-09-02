@@ -1,4 +1,4 @@
-package computerScience.thread;
+package computerScience.thread; 
 
 public class Ex2_foo implements Runnable{
 	@Override
