@@ -15,13 +15,10 @@ public class QuickSort extends SortableArray{
 		int pivotIndex = partition( leftIndex , rightIndex );
 		
 		// 피벗 왼쪽에 대해 quicksort 메소드를 재귀적으로 호출한다.
-		quickSort( leftIndex , pivotIndex );
+		quickSort( leftIndex , pivotIndex - 1 );
 		
 		// 피벗 오른쪽에 대해 quicksort 메소드를 재귀적으로 호출한다.
 		quickSort(pivotIndex + 1 , rightIndex);
 		
-	}
-	
-
-	
+	}	
 }
