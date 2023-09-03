@@ -22,7 +22,7 @@ public class Ex4_hasDuplicateValue {
 		int[] array1 = new int[] {0, 5, 2, 1, 6, 3};
 		boolean result1 = hasDuplicateValue( array1 );
 		System.out.println("result : " + result1);
-		// --------------------//
+		// -------------------------------------------//
 		int[] array2 = new int[] {0, 5, 2, 1, 5, 3};
 		boolean result2 = hasDuplicateValue( array2 );
 		System.out.println("result : " + result2);
