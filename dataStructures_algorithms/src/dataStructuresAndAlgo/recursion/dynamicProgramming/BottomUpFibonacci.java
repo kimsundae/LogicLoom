@@ -28,6 +28,7 @@ public class BottomUpFibonacci {
 	public static void main(String[] args) {
 		int result = fib( 10 );
 		System.out.println( result );
+		
 		// 결과값 55
 	}
 
