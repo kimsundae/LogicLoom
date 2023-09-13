@@ -34,6 +34,7 @@ public class Main {
 			if( !result ) {
 				set[index++] = temp;
 			}
+			
 				
 			
 				
