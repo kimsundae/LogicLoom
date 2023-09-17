@@ -2,7 +2,7 @@ package computerScience.process;
 
 import java.util.concurrent.locks.ReentrantLock;
 
-public class Mutex {
+public class MutexLearning {
 	private static final int NUM_THREADS = 4;
 	private static int shared = 0;
 	private static final ReentrantLock mutex = new ReentrantLock();
@@ -11,7 +11,7 @@ public class Mutex {
 		Thread[] threads = new Thread[NUM_THREADS];
 
 		for (int i = 0; i < NUM_THREADS; ++i) {
-			threads[i] = new Thread(Mutex::foo);
+			threads[i] = new Thread(MutexLearning::foo);
 			threads[i].start();
 		}
 
