@@ -1,4 +1,4 @@
-package computerScience.thread;
+package computerScience.process;
 
 import java.util.concurrent.locks.ReentrantLock;
 
