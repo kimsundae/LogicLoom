@@ -16,8 +16,8 @@ public class LinkedList_Ex1 {
         
         LinkedList list = new LinkedList( node1 );
         // linkedList 검색은 배열과 달리 O(N)단계가 걸린다.
-        // once
-        System.out.println( list.read(0));
+        // a
+        System.out.println( list.read(2));
         // 2
         System.out.println( list.indexOf("a"));        
         list.insertAtIndex(3, "purple");

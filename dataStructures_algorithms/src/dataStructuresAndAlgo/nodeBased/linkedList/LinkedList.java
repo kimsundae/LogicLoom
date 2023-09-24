@@ -14,7 +14,7 @@ public class LinkedList {
 	public void setNode(Node_ node) {
 		this.node = node;
 	}
-	// linkedList 검색은 배열과 달리 O(N)단계가 걸린다.
+	// linkedList 읽기는 배열과 달리 O(N)단계가 걸린다.
 	public Object read(int index) {
 	    // 리스트의 첫 번째 노드에서 시작한다.
 		Node_ currentNode = node;
