@@ -1,4 +1,4 @@
-package dataStructuresAndAlgo.nodeBased.doublyLinkedList;
+package dataStructuresAndAlgo.nodeBased.doublyLinkedListAndBasedQue;
 /*
  * 309p
  * 		이중 연결 리스트 기반 큐
