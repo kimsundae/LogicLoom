@@ -5,11 +5,9 @@ public class DoublyLinkedList_Node {
 	private DoublyLinkedList_Node nextNode;
 	private DoublyLinkedList_Node previousNode;
 	public DoublyLinkedList_Node() {}
-	public DoublyLinkedList_Node(String data, DoublyLinkedList_Node nextNode, DoublyLinkedList_Node previousNode) {
+	public DoublyLinkedList_Node(String data) {
 		super();
 		this.data = data;
-		this.nextNode = nextNode;
-		this.previousNode = previousNode;
 	}
 	public String getData() {
 		return data;
