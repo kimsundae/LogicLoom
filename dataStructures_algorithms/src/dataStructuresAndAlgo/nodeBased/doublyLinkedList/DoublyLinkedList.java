@@ -1,5 +1,9 @@
 package dataStructuresAndAlgo.nodeBased.doublyLinkedList;
-
+/*
+ * 307.p
+ * 		이중 연결 리스트
+ * 
+ */
 public class DoublyLinkedList {
 	private DoublyLinkedList_Node firstNode;
 	private DoublyLinkedList_Node lastNode;
@@ -38,9 +42,13 @@ public class DoublyLinkedList {
 			lastNode = newNode;
 		}
 	}
-	
-	
-	
+	// 이중 연결 리스트 가장 앞 노드 삭제 메서드
+	public DoublyLinkedList_Node removeFromFront() {
+		DoublyLinkedList_Node removedNode = firstNode;
+		firstNode = firstNode.getnextNode();
+		return removedNode;
+	}
+		
 	@Override
 	public String toString() {
 		return "DoublyLinkedList [firstNode=" + firstNode + ", lastNode=" + lastNode + "]";

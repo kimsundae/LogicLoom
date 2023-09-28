@@ -1,4 +1,8 @@
 package dataStructuresAndAlgo.nodeBased.doublyLinkedList;
+/*
+ * 307.p 
+ * 		이중 연결 리스트 노드
+ */
 
 public class DoublyLinkedList_Node {
 	private String data;
@@ -31,7 +35,5 @@ public class DoublyLinkedList_Node {
 	public String toString() {
 		return "DoublyLinkedList_Node [data=" + data + ", nextNode=" + nextNode + ", previousNode=" + previousNode
 				+ "]";
-	}
-	
-		
+	}	
 }
