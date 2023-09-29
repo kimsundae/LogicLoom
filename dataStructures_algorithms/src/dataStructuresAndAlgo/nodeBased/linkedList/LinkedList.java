@@ -2,7 +2,8 @@ package dataStructuresAndAlgo.nodeBased.linkedList;
 
 public class LinkedList {
 	private Node_ node;
-
+	public LinkedList() {	
+	}
 	public LinkedList(Node_ node) {
 		this.node = node;
 	}
