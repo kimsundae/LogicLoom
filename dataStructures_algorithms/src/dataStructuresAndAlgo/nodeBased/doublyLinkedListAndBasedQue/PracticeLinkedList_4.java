@@ -18,7 +18,7 @@ public class PracticeLinkedList_4 extends LinkedList{
 		list.insertAtIndex(index++, "안녕");
 		list.insertAtIndex(index++, "연결");
 		list.insertAtIndex(index++, "리스트");
-		list.reverseList();
+		list.reverseListSolution();
 		list.printList();
 		// result : 리스트 연결 안녕
 	}
@@ -67,5 +67,26 @@ public class PracticeLinkedList_4 extends LinkedList{
 			node = node.getNextNode();
 			node.setData(valueList[index--]);
 		}						
+	}
+
+	public void reverseListSolution() {
+		// 이전 노드
+		Node_ previousNode = null;
+		// 현재 노드
+		Node_ currentNode = super.getNode();
+		// 다음 노드
+		Node_ nextNode;
+		// 임시 노드
+		Node_ tempNode;
+		while( currentNode != null ) {
+			nextNode = currentNode.getNextNode();
+			
+			currentNode.setNextNode(previousNode); 
+				
+			previousNode = currentNode;
+			currentNode = nextNode;
+			
+		}
+		super.setNode(previousNode);
 	}
 }
