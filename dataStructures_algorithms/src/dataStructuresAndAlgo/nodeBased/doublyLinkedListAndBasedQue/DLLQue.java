@@ -22,5 +22,6 @@ public class DLLQue {
 	public String read() {
 		if( data.getFirstNode() == null ) return null;
 		return data.getFirstNode().getData();
+		
 	}
 }
