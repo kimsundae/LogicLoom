@@ -32,7 +32,21 @@ public class TreeNode {
     	
     	return null; 
     }
-    
+    // 이진 탐색 트리 삽입 메서드
+    public void insert( int value, TreeNode node ) {
+    	if( value < node.value ) {
+    		if( node.leftChild == null )
+    			node.leftChild = new TreeNode(value);
+    		else
+    			insert( value, node.leftChild );
+    	}
+    	else if( value > node.value ) {
+    		if( node.rightChild == null )
+    			node.rightChild = new TreeNode(value);
+    		else
+    			insert( value, node.rightChild );
+    	}
+    }
     // getter setter
     public int getValue() {
         return value;
