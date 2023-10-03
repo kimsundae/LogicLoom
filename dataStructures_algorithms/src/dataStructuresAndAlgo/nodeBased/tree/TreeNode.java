@@ -47,6 +47,72 @@ public class TreeNode {
     			insert( value, node.rightChild );
     	}
     }
+    // 이진 탐색 트리 삭제 메서드
+    public TreeNode delete( int valueToDelete, TreeNode node ) {
+    	
+    	// 트리 바닥에 도달해서 부모 노드에 자식이 없으면 기저 조건이다.
+    	if( node == null ) return null;
+    	
+    	
+    	// 	삭제하려는 값이 현재 노드보다 작거나 크면
+    	// 	현재 노드의 왼쪽 혹은 오른쪽 하위 트리에 대한 재귀 호출의 반환값을 
+    	// 	각각 왼쪽 혹은 오른쪽 자식에 할당된다.
+    	else if( valueToDelete < node.value ) {
+    		node.leftChild = delete( valueToDelete, node.leftChild );
+    		
+    		// 현재 노드(와 존재한다면 그 하위 트리)를 반환해서
+    		// 현재 노드의 부모의 왼쪽 혹은 오른쪽 자식의 새로운 값으로 쓰이게 한다.
+    		return node;
+    	}
+    	else if( valueToDelete > node.value ) {
+    		node.rightChild = delete( valueToDelete, node.rightChild );
+    		return node;
+    	}
+    	
+    	// 현재 노드가 삭제하려는 노드인 경우
+    	else if( valueToDelete == node.value ) {
+    		
+    		// 현재 노드에 왼쪽 자식이 없으면
+    		// 오른쪽 자식(과 존재한다면 그 하위 트리)를 
+    		// 그 부모의 새 하위 트리로 반환함으로써 현재 노드를 삭제한다.
+    		if( node.leftChild == null )
+    			return node.rightChild;
+    			
+    			// (현재 노드에 왼쪽 또는 오른쪽 자식이 없으면
+    			// 이 메서드 코드 첫 줄에 따라 null을 반환하게 된다.
+    		
+    		else if(node.rightChild == null)
+    			return node.leftChild;
+    		
+    		// 현재 노드에 자식이 둘이면
+    		// 현재 노드의 값을 후속자 노드의 값으로 바꾸는
+    		// (아래) lift 함수를 호출함으로써 현재 노드를 삭제한다.
+    		else {
+    			node.rightChild = lift(node.rightChild, node);
+    			return node;
+    		}	
+    	}
+    	return null;
+    }
+    // 이진 탐색 트리 삭제 lift 메서드
+    public TreeNode lift( TreeNode node, TreeNode nodeToDelete ) {
+    	
+    	// 이 함수의 현재 노드에 왼쪽 자식이 있으면
+    	// 왼쪽 하위 트리로 게속해서 내려가도록 메서드를 재귀적으로 호출함으로써
+    	// 후속자 노드를 찾는다.
+    	if( node.leftChild != null ) {
+    		node.leftChild = lift( node.leftChild, nodeToDelete );
+    		return node;
+    	}
+    	// 현재 노드에 왼쪽 자식이 없으면
+    	// 이 함수의 현재 노드가 후속자 노드라는 뜻이므로
+    	// 현재 노드의 값을 삭제하려는 노드의 새로운 값으로 할당한다.
+    	else {
+    		nodeToDelete.value = node.value;
+    		// 후속자 노드의 오른쪽 자식이 부모의 왼쪽 자식으로 쓰일 수 있도록 반환해야한다.
+    		return node.rightChild;
+    	}
+    }
     // getter setter
     public int getValue() {
         return value;
