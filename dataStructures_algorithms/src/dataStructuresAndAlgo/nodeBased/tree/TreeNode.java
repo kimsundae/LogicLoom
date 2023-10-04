@@ -113,6 +113,14 @@ public class TreeNode {
     		return node.rightChild;
     	}
     }
+    // 이진 탐색 트리 중위 순회(inorder traversal) 메서드
+    public void traverseAndPrint( TreeNode node ) {
+    	if( node == null) return;
+    	traverseAndPrint(node.leftChild);
+    	System.out.println(node.value);
+    	traverseAndPrint(node.rightChild);
+    }
+    
     // getter setter
     public int getValue() {
         return value;
