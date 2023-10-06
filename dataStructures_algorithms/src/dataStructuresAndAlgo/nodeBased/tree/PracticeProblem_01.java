@@ -11,8 +11,8 @@ public class PracticeProblem_01 {
         *                1
         *                            5
         *                      2            9
-        *                   4        6             10
-        *                           3             8
+        *                         4     6         10
+        *                       3         8
         *
         * */
 
