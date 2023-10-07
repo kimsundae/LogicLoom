@@ -1,5 +1,5 @@
 package dataStructuresAndAlgo.nodeBased.tree;
-
+//https://velog.io/@kimsundae/%EC%9D%B4%EC%A7%84-%ED%83%90%EC%83%89-%ED%8A%B8%EB%A6%AC
 public class TreeNode {
     private int value;
     private TreeNode leftChild;
@@ -30,7 +30,7 @@ public class TreeNode {
     	else 
     		return search( searchValue, node.rightChild );
     	
-    	return null; 
+    	return null;
     }
     // 이진 탐색 트리 삽입 메서드
     public void insert( int value, TreeNode node ) {
