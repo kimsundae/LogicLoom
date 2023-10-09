@@ -52,8 +52,7 @@ public class TreeNode {
     	
     	// 트리 바닥에 도달해서 부모 노드에 자식이 없으면 기저 조건이다.
     	if( node == null ) return null;
-    	
-    	
+
     	// 	삭제하려는 값이 현재 노드보다 작거나 크면
     	// 	현재 노드의 왼쪽 혹은 오른쪽 하위 트리에 대한 재귀 호출의 반환값을 
     	// 	각각 왼쪽 혹은 오른쪽 자식에 할당된다.
@@ -68,7 +67,6 @@ public class TreeNode {
     		node.rightChild = delete( valueToDelete, node.rightChild );
     		return node;
     	}
-    	
     	// 현재 노드가 삭제하려는 노드인 경우
     	else if( valueToDelete == node.value ) {
     		
@@ -120,7 +118,6 @@ public class TreeNode {
     	System.out.println(node.value);
     	traverseAndPrint(node.rightChild);
     }
-    
     // getter setter
     public int getValue() {
         return value;
