@@ -1,5 +1,8 @@
 package computerScience.process;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class LearningProcess_1 {
 
 	public static void main(String[] args) {

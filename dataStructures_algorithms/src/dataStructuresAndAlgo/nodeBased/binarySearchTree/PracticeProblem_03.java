@@ -1,4 +1,4 @@
-package dataStructuresAndAlgo.nodeBased.tree;
+package dataStructuresAndAlgo.nodeBased.binarySearchTree;
 
 /*
 *   346p 3번 문제.
