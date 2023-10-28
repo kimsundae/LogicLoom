@@ -1,44 +1,35 @@
 package backjoon.nowSolving;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+
+import java.util.HashMap;
 import java.util.StringTokenizer;
 
 public class Main {
+	// 피보나치 수 구하는 메서드
+	public static String returnFibonacci() {
+		StringBuilder sb = new StringBuilder();
+		long a = 0;
+		long b = 1;
 
-	public static void main(String[] args) throws Exception{
-		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		StringTokenizer st = new StringTokenizer( bf.readLine() , " ");
-		int N = Integer.parseInt(st.nextToken());
-		int M = Integer.parseInt(st.nextToken());
-		String[] set = new String[N+M];
-		
-		int index = N;
-		
-		
-		for(int i=0; i<N; i++) 
-			set[i] = bf.readLine();
-		
-		for(int i=N; i<=M+N; i++) {
-						
-			boolean result = false;
-			String temp = bf.readLine();
-			for(int j=0; j<N; j++) {
-				if(set[j].equals(temp))
-					result = true;
-					
-			}
-			if( !result ) {
-				set[index++] = temp;
-			}
-			
-				
-			
-				
+		while(  99987654321L > b  ) {
+			// 가장 이전 값 tmp
+			long tmp = a;
+			// 그 다음 값 a
+			a = b;
+			// 두 값을 합쳐 b에 할당
+			b = tmp + a;
+			if (99987654321L > b && b > 12345678999L) sb.append(b).append(" ");
 		}
-			
-	}		
+		return sb.toString();
+	}
+
+	public static void main(String[] args) {
+
+		StringTokenizer st = new StringTokenizer( returnFibonacci() , " "  );
+		long sum = 0;
+		while(st.hasMoreTokens()){
+			sum += Long.parseLong(st.nextToken());
+		}
+		System.out.println(sum);
+	}
 }
