@@ -1,12 +1,14 @@
-package coddingProblem.backjoon.nowSolving;
+package coddingProblem.backjoon.categoryProblem.setAndMap;
 
 
 import java.io.*;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.StringTokenizer;
-
-public class Main {
+/*
+* 	https://www.acmicpc.net/problem/7785 회사에 있는 사람
+* */
+public class SetAndMap_7785 {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));

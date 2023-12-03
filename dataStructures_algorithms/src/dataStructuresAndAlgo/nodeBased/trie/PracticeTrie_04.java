@@ -1,9 +1,7 @@
 package dataStructuresAndAlgo.nodeBased.trie;
 
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+
 
 /*
 *   401p 4 오탈자를 올바른 단어로 바꿔주는 autocorrect 함수 작성
