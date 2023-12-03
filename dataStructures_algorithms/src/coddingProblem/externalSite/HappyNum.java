@@ -1,4 +1,4 @@
-package CoddingProblem.externalSite;
+package coddingProblem.externalSite;
 
 import java.util.HashMap;
 import java.util.StringTokenizer;

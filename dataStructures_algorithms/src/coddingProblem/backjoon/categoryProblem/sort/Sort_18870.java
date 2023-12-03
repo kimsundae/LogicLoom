@@ -1,4 +1,4 @@
-package CoddingProblem.backjoon.categoryProblem.sort;
+package coddingProblem.backjoon.categoryProblem.sort;
 
 import java.io.*;
 import java.util.Arrays;

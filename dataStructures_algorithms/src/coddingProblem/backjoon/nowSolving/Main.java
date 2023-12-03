@@ -1,4 +1,4 @@
-package CoddingProblem.backjoon.nowSolving;
+package coddingProblem.backjoon.nowSolving;
 
 
 import java.util.StringTokenizer;

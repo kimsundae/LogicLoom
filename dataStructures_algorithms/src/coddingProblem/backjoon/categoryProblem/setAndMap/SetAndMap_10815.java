@@ -1,4 +1,4 @@
-package CoddingProblem.backjoon.categoryProblem.setAndMap;
+package coddingProblem.backjoon.categoryProblem.setAndMap;
 import java.io.*;
 import java.util.HashMap;
 import java.util.HashSet;
