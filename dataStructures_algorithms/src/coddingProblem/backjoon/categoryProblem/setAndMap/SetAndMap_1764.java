@@ -1,4 +1,4 @@
-package coddingProblem.backjoon.nowSolving;
+package coddingProblem.backjoon.categoryProblem.setAndMap;
 
 
 import java.io.BufferedReader;

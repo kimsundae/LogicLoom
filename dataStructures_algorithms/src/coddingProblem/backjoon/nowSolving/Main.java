@@ -5,71 +5,66 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-	/*public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringBuilder sb = new StringBuilder();
-		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-
-		int N = Integer.parseInt(st.nextToken()) , M = Integer.parseInt(st.nextToken());
-		// 명단
-		Set< String > names = new HashSet<>();
-		// 듣보잡 명단
-		TreeSet< String > noHearAndSeeNames = new TreeSet<>();
-		// 듣도 못한 사람 names 저장
-		for( int i = 0; i < N; i++ )
-			names.add(br.readLine());
-
-		// 보도 못한 사람 저장
-		for( int i = 0; i < M; i++ ){
-
-			String noSeePerson = br.readLine();
-			// 만약 보도못한 사람이 중복 된다면 듣보잡 명단에 추가
-			if( !names.add(noSeePerson) )
-				noHearAndSeeNames.add(noSeePerson);
-
-		}
-
-		Iterator< String > iterator = noHearAndSeeNames.iterator();
-		sb.append(noHearAndSeeNames.size()).append("\n");
-
-		while(iterator.hasNext() ){
-			sb.append(iterator.next()).append("\n");
-		}
-
-		System.out.println(sb);
-
-	}*/
 	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringBuilder sb = new StringBuilder();
-		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+		selectSort();
+	}
+	public static void insertSort(){
+		int[] arr = new int[]{ 5, 4, 3, 2, 1 };
+		for( int i = 1; i < arr.length; i++ ){
+			int position = i-1;
+			int tmpValue = arr[i];
+			while( position >= 0 ){
 
-		int N = Integer.parseInt(st.nextToken()) , M = Integer.parseInt(st.nextToken());
-		// 명단
-		Set< String > names = new HashSet<>();
-		// 듣보잡 명단
-		List< String > noHearAndSeeNames = new ArrayList<>();
-		// 듣도 못한 사람 names 저장
-		for( int i = 0; i < N; i++ )
-			names.add(br.readLine());
+				if( arr[position] > tmpValue ){
+					arr[position+1] = arr[position];
+					position -= 1;
+				}else{
+					break;
+				}
 
-		// 보도 못한 사람 저장
-		for( int i = 0; i < M; i++ ){
-
-			String noSeePerson = br.readLine();
-			// 만약 보도못한 사람이 중복 된다면 듣보잡 명단에 추가
-			if( !names.add(noSeePerson) )
-				noHearAndSeeNames.add(noSeePerson);
-
+			}
+			arr[position + 1] = tmpValue;
 		}
+		System.out.println(Arrays.toString(arr));
 
-		Collections.sort(noHearAndSeeNames);
+	}
+	public static void selectSort(){
+		int[] arr = new int[]{ 5, 4, 3, 2, 1 };
 
-		sb.append(noHearAndSeeNames.size()).append("\n");
-		for(int i = 0; i < noHearAndSeeNames.size(); i++)
-			sb.append(noHearAndSeeNames.get(i)).append('\n');
+		for( int i = 0; i < arr.length; i++ ){
 
-		System.out.println(sb);
+			int lowerIndex = i;
+			for( int j = i+1; j < arr.length; j++ ){
+				if( arr[i] > arr[j] ){
+					lowerIndex = j;
+				}
+			}
+			if( lowerIndex != i ){
+				int tmp = arr[i];
+				arr[i] = arr[lowerIndex];
+				arr[lowerIndex] = tmp;
+			}
+		}
+		System.out.println(Arrays.toString(arr));
 
+	}
+	public static void bubbleSort(){
+		int[] arr = new int[]{ 5, 4, 3, 2, 1 };
+		boolean isSorted = false;
+		int untilIndex = arr.length - 1;
+		while( !isSorted ){
+
+			isSorted = true;
+			for( int i = 0; i < untilIndex; i++ ){
+				if( arr[i] > arr[i+1] ){
+					int tmp = arr[i];
+					arr[i] = arr[i+1];
+					arr[i+1] = tmp;
+					isSorted = false;
+				}
+			}
+			untilIndex -= 1;
+		}
+		System.out.println(Arrays.toString(arr));
 	}
 }
