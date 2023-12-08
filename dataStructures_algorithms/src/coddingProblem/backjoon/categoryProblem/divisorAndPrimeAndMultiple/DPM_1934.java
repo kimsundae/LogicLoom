@@ -5,7 +5,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
-
+/*
+* https://www.acmicpc.net/problem/1934 최소공배수
+* */
 public class DPM_1934 {
 
 	public static void main(String[] args) throws IOException {
