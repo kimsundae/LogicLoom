@@ -9,58 +9,55 @@ public class Main{
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
-		StringTokenizer st;
-		// 총 가로수 개수
-		int N = Integer.parseInt(br.readLine());
-		// 가로수 위치
-		int[] location = new int[N];
-		// 처음과 끝에 심어져있는 가로수 위치
-		int firstTree,lastTree;
-		// 간격의 최대 공약수
-		int division = 1;
-		// 총 가로수 수
-		int count = 0;
+		int T = Integer.parseInt(br.readLine());
 
-		for( int i = 0; i < N; i++ ){
-			int num = Integer.parseInt(br.readLine());
-			location[i] = num;
+		main : for( int i = 0; i < T; i++ ){
 
-		}
+			int n = Integer.parseInt(br.readLine());
+			List<Integer> list = new LinkedList<>(Arrays.asList(2, 3, 5, 7));
+			int nowNum = 11;
 
-		firstTree = location[0];lastTree = location[N-1];
-
-		// 간격 구한 후 대입
-		for( int i = 0; i < N-1; i++ ){
-			location[i] = location[i+1] - location[i];
-		}
-
-
-		// 최대 공약수 구하기
-		for( int i = 2; i <= location[0]; i++ ){
-
-			boolean hasDivision = true;
-
-			for( int j = 0; j < N-1; j++ ){
-
-				if( location[j] % i != 0 ){
-					hasDivision = false;
+			// 1, 2, 3, 5, 7일 경우 소수 출력 후 다음 루프 진행
+			switch (n){
+				case 1:
+					sb.append(2).append("\n");
 					break;
+				case 2:
+					sb.append(3).append("\n");
+					break;
+				case 3:
+					sb.append(5).append("\n");
+					break;
+				case 5:
+					sb.append(7).append("\n");
+					break;
+				case 7:
+					sb.append(11).append("\n");
+					break;
+			}// switch
+
+			while(true){
+
+				// 소수 판별
+				boolean isPrime = true;
+
+				for( int j = 0; j < list.size(); j++ ){
+
+					if(  nowNum % list.get(j) == 0 ){
+						isPrime = false;
+						break;
+					}
+
 				}
+				// 소수라면 list에 추가
+				if( isPrime ) {
+					// 소수인 nowNum이 입력값 n보다 크거나 같으면 출력
+					if( nowNum >= n ){ sb.append(nowNum).append("\n");break;}
+					list.add(nowNum);nowNum++;
+				}
+
 			}
 
-			// 공약수를 가졌다면 현재 공약수를 i로 저장
-			// 루프 중 마지막에 저장된 값이 최대공약수
-			if( hasDivision )
-				division = i;
-
 		}
-		int i = firstTree;
-		while( lastTree >= i ){
-			count++;
-			i += division;
-		}
-		// 결과 출력
-		// 총 가로수 수 - 현재 가로수 수
-		System.out.println(count - N);
 	}
 }
