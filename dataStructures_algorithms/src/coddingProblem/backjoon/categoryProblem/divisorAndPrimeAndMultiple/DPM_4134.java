@@ -1,9 +1,13 @@
-package coddingProblem.backjoon.nowSolving;
+package coddingProblem.backjoon.categoryProblem.divisorAndPrimeAndMultiple;
 
 
-import java.io.*;
-
-public class Main{
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+/*
+* 	https://www.acmicpc.net/problem/4134 다음소수
+* */
+public class DPM_4134 {
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
