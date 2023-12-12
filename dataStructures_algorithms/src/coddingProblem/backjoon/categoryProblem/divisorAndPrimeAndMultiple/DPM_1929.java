@@ -1,10 +1,14 @@
-package coddingProblem.backjoon.nowSolving;
+package coddingProblem.backjoon.categoryProblem.divisorAndPrimeAndMultiple;
 
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.StringTokenizer;
-
-public class Main{
+/*
+* 	https://www.acmicpc.net/problem/1929 소수 구하기
+* */
+public class DPM_1929 {
 	public static boolean isPrime( int M ){
 		if( M == 1 ) return false;
 		for( int i = 2; i * i <= M; i++ ){
