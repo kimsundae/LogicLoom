@@ -1,10 +1,13 @@
-package coddingProblem.backjoon.nowSolving;
+package coddingProblem.backjoon.categoryProblem.divisorAndPrimeAndMultiple;
 
 
-import java.io.*;
-import java.util.StringTokenizer;
-
-public class Main{
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+/*
+* https://www.acmicpc.net/problem/4948 베르트랑 공준
+* */
+public class DPM_4948 {
 /*    public static boolean isPrime(int N){
         if( 2 > N ) return false;
         for( int i = 2; i*i <= N; i++ ){
