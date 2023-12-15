@@ -2,39 +2,12 @@ package coddingProblem.backjoon.nowSolving;
 
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 public class Main{
-/*    public static boolean isPrime(int N){
-        if( 2 > N ) return false;
-        for( int i = 2; i*i <= N; i++ ){
-            if( N % i == 0) return false;
-        }
-        return true;
-    }
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
 
-        while (true){
-            int N = Integer.parseInt(br.readLine());
-            if( N == 0) { break; }
-
-            int doubleN = N*2;
-            int count = 0;
-            N++;
-            while( doubleN >= N ){
-                if(isPrime(N)){
-                    count++;
-                }
-                N++;
-            }
-            sb.append(count).append("\n");
-        }
-
-
-        System.out.println(sb);
-    }*/
     public static boolean isPrime(int N){
         if( 2 > N ) return false;
         for( int i = 2; i*i <= N; i++ ){
@@ -46,34 +19,36 @@ public class Main{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
 
-        int count = 2;
-        boolean[] numbers = new boolean[123457*2];
-        while( 123457*2 >= count ){
+        int T = Integer.parseInt(br.readLine());
 
-            if( isPrime(count) ){
-                numbers[count] = true;
+        List<Integer> list = new ArrayList<>();
+        int prime = 2;
+
+        while ( 1000000 >= prime ){
+
+            if(isPrime(prime)) {
+                list.add(prime);
             }
-            count++;
-
+            prime++;
         }
-
-        while( true ){
-
+        System.out.println("실행");
+        for( int z = 0; z < T; z++ ) {
+            System.out.println("실행");
             int N = Integer.parseInt(br.readLine());
-            if( N == 0 )
-                break;
-            int doubleN = N*2;
-            int primes = 0;
-            for( int i = N+1; i <= doubleN; i++ ){
+            boolean isGold = true;
+            int count = 0;
+            for (int i = 0; i < list.size(); i++) {
 
-                if( numbers[i] )
-                    primes++;
+                for (int j = 0; j < list.size(); j++) {
+
+                    if( list.get(i) + list.get(j) == N ){
+                        count++;
+                    }
+
+                }
 
             }
-            sb.append(primes).append("\n");
-
-
-
+            sb.append(count).append("\n");
         }
         System.out.println(sb);
     }
