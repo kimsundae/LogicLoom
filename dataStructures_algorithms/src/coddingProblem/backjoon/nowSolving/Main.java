@@ -2,9 +2,8 @@ package coddingProblem.backjoon.nowSolving;
 
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.*;
+
 
 public class Main{
 
@@ -15,7 +14,7 @@ public class Main{
         }
         return true;
     }
-    public static void main(String[] args) throws IOException {
+    /*public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
 
@@ -33,7 +32,6 @@ public class Main{
         }
         for( int z = 0; z < T; z++ ) {
             int N = Integer.parseInt(br.readLine());
-            boolean isGold = true;
             int count = 0;
             for (int i = 0; list.get(i) < N; i++) {
 
@@ -52,5 +50,83 @@ public class Main{
             sb.append(count % 2 == 0 ? count / 2 : count / 2 +1).append("\n");
         }
         System.out.println(sb);
+    }*/
+    public static void main(String[] args) throws Exception{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+
+        int T = Integer.parseInt(br.readLine());
+        Set<Integer> primeSet = new HashSet<>();
+
+        int count = 2;
+        while( 1000000 >= count ){
+            if( isPrime(count) ){
+                primeSet.add(count);
+            }
+            count++;
+        }
+        int[] primes = new int[primeSet.size()];
+        Iterator<Integer> iterator = primeSet.iterator();
+        count = 0;
+        while(iterator.hasNext()){
+            primes[count] = iterator.next();
+            count++;
+        }
+
+        for( int i = 0; i < T; i++ ){
+            int N = Integer.parseInt(br.readLine());
+            int startPrime = N;
+            int goldCount = 0;
+            int startIndex = N;
+            while( true ){
+                startIndex--;
+                int index = binarySearch( startIndex, primes );
+                if(index != -1){
+                    startIndex = index;
+                    break;
+                }
+
+            }
+            while( true ){
+                startPrime = calStartPrime( startPrime, primeSet );
+                if(  N/2 > startIndex )
+                    break;
+                if( primeSet.contains(N - startPrime)){
+                    goldCount++;
+                }
+
+            }
+            sb.append(goldCount).append("\n");
+        }
+        System.out.println(sb);
+    }
+    public static int calStartPrime( int startPrime, Set<Integer> primeSet ){
+        while(true){
+            startPrime--;
+            if(primeSet.contains(startPrime)){
+                return startPrime;
+            }
+        }
+    }
+    public static int binarySearch( int searchNum, int[] primes ) {
+
+        int lower = 0;
+        int upper = primes.length - 1;
+        while (upper >= lower) {
+
+            int mid = (upper + lower) / 2;
+            int midValue = primes[mid];
+
+            if( searchNum == midValue )
+                return mid;
+
+            else if ( searchNum > midValue )
+                lower = mid + 1;
+
+            else if( midValue > searchNum )
+                upper = mid - 1;
+
+        }
+        return -1;
     }
 }
