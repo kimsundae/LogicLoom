@@ -31,24 +31,25 @@ public class Main{
             }
             prime++;
         }
-        System.out.println("실행");
         for( int z = 0; z < T; z++ ) {
-            System.out.println("실행");
             int N = Integer.parseInt(br.readLine());
             boolean isGold = true;
             int count = 0;
-            for (int i = 0; i < list.size(); i++) {
+            for (int i = 0; list.get(i) < N; i++) {
 
-                for (int j = 0; j < list.size(); j++) {
-
-                    if( list.get(i) + list.get(j) == N ){
-                        count++;
+                for (int j = 0; list.get(j) < N; j++) {
+                    int iValue = list.get(i);
+                    int jValue = list.get(j);
+                    if( iValue + jValue == N ){
+                        count++; break;
+                    }else if( iValue + jValue > N){
+                        break;
                     }
 
                 }
 
             }
-            sb.append(count).append("\n");
+            sb.append(count % 2 == 0 ? count / 2 : count / 2 +1).append("\n");
         }
         System.out.println(sb);
     }
