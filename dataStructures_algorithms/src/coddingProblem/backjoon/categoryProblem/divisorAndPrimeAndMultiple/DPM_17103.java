@@ -1,9 +1,12 @@
-package coddingProblem.backjoon.nowSolving;
+package coddingProblem.backjoon.categoryProblem.divisorAndPrimeAndMultiple;
 
 
-import java.io.*;
-
-public class Main{
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+/*
+* https://www.acmicpc.net/problem/17103 골드바흐 파티션
+* */
+public class DPM_17103 {
 
     public static boolean isPrime(int N){
         if( 2 > N ) return false;

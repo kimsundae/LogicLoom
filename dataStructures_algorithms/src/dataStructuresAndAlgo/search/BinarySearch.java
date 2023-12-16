@@ -3,6 +3,7 @@ package dataStructuresAndAlgo.search;
 * p.58 이진검색
 * */
 public class BinarySearch {
+    // 이진검색
     public static int binarySearch( int[] arr, int searchValue ){
         // 먼저 찾으려는 값이 있을 수 있는 상한선과 하한선을 정한다.
         // 최초의 상한선은 배열의 첫 번째 값, 하한선은 마지막 값이다.
