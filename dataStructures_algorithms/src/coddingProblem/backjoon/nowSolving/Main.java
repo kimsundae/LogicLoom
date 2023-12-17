@@ -3,49 +3,95 @@ package coddingProblem.backjoon.nowSolving;
 
 import java.io.*;
 
-public class Main{
+public class Main {
+    public static int soleved( int num ){
+        boolean isPrime = true;
+        int value = num;
+        int count = 0;
+        if( 2 > num ) return 0;
+        for( int i = 2; i <= num; i++ ){
 
-    public static boolean isPrime(int N){
-        if( 2 > N ) return false;
-        for( int i = 2; i*i <= N; i++ ){
-            if( N % i == 0) return false;
+            if( value % i == 0 ){
+                if( value / i == 1 ) {
+                    System.out.println("num="+num);count++;
+                    System.out.println("count="+count);break;}
+                value /= i;
+                i = 2;
+                count += 2;
+                isPrime = false;
+            }
         }
-        return true;
+        if( isPrime )
+            return -1;
+
+        return count % 2 == 0 ? 0 : -1;
     }
-    public static void main(String[] args) throws Exception{
+
+    public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
 
-        int T = Integer.parseInt(br.readLine());
+        int N = Integer.parseInt(br.readLine());
+        int count = N;
 
-        boolean[] primes = new boolean[1000001];
+        for (int i = 2; i <= N; i++) {
 
-        int count = 2;
-        while( 1000000 >= count ){
-            if( isPrime(count) ){
-                primes[count] = true;
-            }
-            count++;
+            count += soleved( i );
+
         }
-
-        for( int i = 0; i < T; i++ ){
-            int N = Integer.parseInt(br.readLine());
-            int startPrime = N-1;
-            int goldCount = 0;
-
-            for( int j = startPrime; j >= N/2; j-- ){
-                // 소수일 경우
-                if( primes[j] ) {
-                    // N - j 또한 소수라면
-                    // 골드바흐 파티션 ++
-                    if (primes[N - j]) {
-                        goldCount++;
-                    }
-
-                }
-            }
-            sb.append(goldCount).append("\n");
-        }
-        System.out.println(sb);
+        System.out.println(count);
     }
 }
+    /*public static void main(String[] args) throws Exception{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int N = Integer.parseInt(br.readLine());
+        int count = N;
+
+        for( int i = 2; i <= N; i++ ){
+            boolean isOpen = true;
+            boolean isPrime = true;
+            for( int j = 2; j <= i; j++ ){
+                if( i % j == 0 ){
+                    isOpen = !isOpen;
+                    isPrime = false;
+                }
+                else if( j*j >= i && isPrime) {
+                    isOpen = false;
+                    break;
+                }
+
+            }
+            if( !isOpen )
+                count--;
+            }
+        System.out.println(count);
+        }
+    }*/
+    /*public static void main(String[] args) throws Exception{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int N = Integer.parseInt(br.readLine());
+        int count = N;
+
+        for( int i = 2; i <= N; i++ ){
+            boolean isOpen = true;
+            boolean isPrime = true;
+            for( int j = 2; j <= i; j++){
+
+
+                if( i % j == 0 ){
+                    isOpen = !isOpen;
+                    isPrime = false;
+                }
+                else if( j*j >= i && isPrime) {
+                    isOpen = false;
+                    break;
+                }
+
+            }
+            if( !isOpen )
+                count--;
+
+        }
+        System.out.println(count);
+    }*/
