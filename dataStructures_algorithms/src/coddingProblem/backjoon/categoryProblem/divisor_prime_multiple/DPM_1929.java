@@ -1,4 +1,4 @@
-package coddingProblem.backjoon.categoryProblem.divisorAndPrimeAndMultiple;
+package coddingProblem.backjoon.categoryProblem.divisor_prime_multiple;
 
 
 import java.io.BufferedReader;

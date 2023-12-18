@@ -1,10 +1,13 @@
-package coddingProblem.backjoon.nowSolving;
+package coddingProblem.backjoon.categoryProblem.stach_queue_deque;
 
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.StringTokenizer;
-
-public class Main {
+/*
+*   https://www.acmicpc.net/problem/28278   스택2
+* */
+public class stack_28278 {
 
     static int[] stack = new int[1000000];
     static int nowIndex = -1;
