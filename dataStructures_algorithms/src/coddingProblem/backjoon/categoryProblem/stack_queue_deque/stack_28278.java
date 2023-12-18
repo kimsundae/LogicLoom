@@ -1,4 +1,4 @@
-package coddingProblem.backjoon.categoryProblem.stach_queue_deque;
+package coddingProblem.backjoon.categoryProblem.stack_queue_deque;
 
 
 import java.io.BufferedReader;
