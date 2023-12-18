@@ -1,9 +1,10 @@
-package coddingProblem.backjoon.nowSolving;
+package coddingProblem.backjoon.categoryProblem.stack_queue_deque;
 
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
-public class Main {
+public class stack_10773 {
 
 
 
