@@ -3,11 +3,10 @@ package coddingProblem.backjoon.categoryProblem.stack_queue_deque;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-
+/*
+* https://www.acmicpc.net/problem/10773 제로
+* */
 public class stack_10773 {
-
-
-
     public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int k = Integer.parseInt(br.readLine());
