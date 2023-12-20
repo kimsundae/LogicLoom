@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 /*
 * https://www.acmicpc.net/problem/9012 괄호
 * */
-public class stack_9012 {
+public class Stack_9012 {
     public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();

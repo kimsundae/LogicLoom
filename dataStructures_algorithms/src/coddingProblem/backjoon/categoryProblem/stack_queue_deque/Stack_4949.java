@@ -1,9 +1,12 @@
-package coddingProblem.backjoon.nowSolving;
+package coddingProblem.backjoon.categoryProblem.stack_queue_deque;
 
 
-import java.io.*;
-
-public class Main {
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+/*
+*  https://www.acmicpc.net/problem/4949 균형잡힌 세상
+* */
+public class Stack_4949 {
     public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();

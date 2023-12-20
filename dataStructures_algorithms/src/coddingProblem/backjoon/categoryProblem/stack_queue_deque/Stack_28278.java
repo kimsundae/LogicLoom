@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
 /*
 *   https://www.acmicpc.net/problem/28278   스택2
 * */
-public class stack_28278 {
+public class Stack_28278 {
 
     static int[] stack = new int[1000000];
     static int nowIndex = -1;
