@@ -1,4 +1,4 @@
-package dataStructuresAndAlgo.nodeBased.graph;
+package dataStructuresAndAlgo.nodeBased.graph.weightedGraph;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,14 +13,15 @@ public class City {
         this.name = name;
         routes = new HashMap<>();
     }
-
     public String getName() {
         return name;
     }
     public Map<City, Integer> getRoutes() {
         return routes;
     }
-
+    /*
+    * 정점 추가 메서드
+    * */
     public void addRoute( City city, int price ){
         routes.put( city, price );
     }
