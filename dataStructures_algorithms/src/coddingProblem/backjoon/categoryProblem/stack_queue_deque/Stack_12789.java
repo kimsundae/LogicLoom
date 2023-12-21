@@ -1,10 +1,14 @@
-package coddingProblem.backjoon.nowSolving;
+package coddingProblem.backjoon.categoryProblem.stack_queue_deque;
 
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Main {
+/*
+* https://www.acmicpc.net/problem/12789 도키도키 간식드리미
+* */
+public class Stack_12789 {
     public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -17,14 +21,15 @@ public class Main {
         StringTokenizer st = new StringTokenizer(br.readLine(), " ");
         while( N-- > 0){
 
-
             int num = Integer.parseInt(st.nextToken());
 
-            if( num == nowNum ){
+            if( num == nowNum )
                 nowNum++;
-            }else if ( nowIndex != -1 ){
+
+            else if ( nowIndex != -1 ){
 
                 if( stack[nowIndex] == nowNum ){
+
                     while (nowIndex != -1){
                         if(stack[nowIndex] == nowNum){
                             nowIndex--; nowNum++;
@@ -32,12 +37,15 @@ public class Main {
                             break;
                     }
                     stack[++nowIndex] = num;
-                }else
+
+                }
+                else
                     stack[++nowIndex] = num;
 
-            }else{
-                stack[++nowIndex] = num;
             }
+
+            else
+                stack[++nowIndex] = num;
 
         }
 
@@ -50,6 +58,5 @@ public class Main {
         }
 
         System.out.println( canEat ? "Nice" : "Sad" );
-
     }
 }
