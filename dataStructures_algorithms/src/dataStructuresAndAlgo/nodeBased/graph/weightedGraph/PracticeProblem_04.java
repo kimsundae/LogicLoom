@@ -12,7 +12,7 @@ import java.util.Queue;
 * */
 public class PracticeProblem_04 {
     /*
-    *
+    * 너비우선탐색 검색 메서드
     * */
     /*public Vertex bfsVertexSearch(Vertex vertex, String searchValue ){
 

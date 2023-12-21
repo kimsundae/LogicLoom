@@ -97,7 +97,7 @@ public class City {
         String currentCityName = finalDestination.name;
 
         // startingCity에 도달할 때까지 루프를 실행한다.
-        while( currentCityName != startingCity.name ){
+        while( !currentCityName.equals(startingCity.name) ){
 
             // 도시가 나올 때마다 각 currentCityName을 shortestPath 리스트에 추가한다.
             shortestPath.add(currentCityName);

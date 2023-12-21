@@ -18,7 +18,7 @@ public class Vertex {
 
     // 정점 추가
     public void addAdjacentVertex( Vertex vertex ){
-        if( vertex.getAdjacentVertices().contains( vertex ) ) return;
+        if( this.adjacentVertices.contains( vertex ) ) return;
         adjacentVertices.add(vertex);
         vertex.addAdjacentVertex(this);
     }
@@ -100,6 +100,9 @@ public class Vertex {
             } // end for
         } // end while
     }// end bfsTraverse
+    /*
+    * 너비 우선 탐색 검색 메서드
+    * */
     public Vertex bfsVertexSearch( Vertex vertex, String searchValue ){
 
         Queue<Vertex> queue = new LinkedList<>();
