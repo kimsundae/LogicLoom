@@ -1,9 +1,12 @@
-package coddingProblem.backjoon.nowSolving;
+package coddingProblem.backjoon.categoryProblem.stack_queue_deque;
 
 
-import java.io.*;
-
-public class Main {
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+/*
+*  https://www.acmicpc.net/problem/2164 카드2
+* */
+public class Queue_2164 {
     public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
