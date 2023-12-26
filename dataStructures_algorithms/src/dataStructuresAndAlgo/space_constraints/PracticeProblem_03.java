@@ -1,4 +1,4 @@
-package dataStructuresAndAlgo.code_optimization.space_constraints;
+package dataStructuresAndAlgo.space_constraints;
 
 import java.util.ArrayList;
 import java.util.List;

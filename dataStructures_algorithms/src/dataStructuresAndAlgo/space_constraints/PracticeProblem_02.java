@@ -1,4 +1,4 @@
-package dataStructuresAndAlgo.code_optimization.space_constraints;
+package dataStructuresAndAlgo.space_constraints;
 /*
 * 475p 연습문제 2번
 * */
