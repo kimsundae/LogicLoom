@@ -5,93 +5,153 @@ import java.io.*;
 import java.util.StringTokenizer;
 
 public class Main {
+
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+        StringTokenizer st;
 
-        int N = Integer.parseInt(st.nextToken());
-        int K = Integer.parseInt(st.nextToken());
+        int N = Integer.parseInt(br.readLine());
 
-        CustomLinkedList listA = new CustomLinkedList();
-        CustomLinkedList listB = new CustomLinkedList();
+        CustomLinkedList dequeue = new CustomLinkedList();
 
-        for( int i = 1; i <= N; i++ )
-            listA.add(i);
-
-        sb.append("<");
-        int count = 1;
-        boolean currentList = true;
-        while( true ){
-
-            if( currentList ){
-
-                if( count % K != 0 ){
-                    listB.add(listA.pop().value);
-                }else{
-                    sb.append(listA.pop().value).append(", ");
-                }
-                if( listA.size == 0 )
-                    currentList = !currentList;
-
-            }else {
-
-                if( count % K != 0 ){
-                    listA.add(listB.pop().value);
-                }else{
-                    sb.append(listB.pop().value).append(", ");
-                }
-
-                if( listB.size == 0 )
-                    currentList = !currentList;
-
+        while( N-- > 0 ){
+            st = new StringTokenizer(br.readLine(), " ");
+            int order = Integer.parseInt(st.nextToken());
+            switch (order){
+                case 1:
+                    dequeue.addFront(Integer.parseInt(st.nextToken()));
+                    break;
+                case 2:
+                    dequeue.addBack(Integer.parseInt(st.nextToken()));
+                    break;
+                case 3:
+                    sb.append(dequeue.popFront()).append("\n");
+                    break;
+                case 4:
+                    sb.append(dequeue.popBack()).append("\n");
+                    break;
+                case 5:
+                    sb.append(dequeue.size()).append("\n");
+                    break;
+                case 6:
+                    sb.append(dequeue.isEmpty()).append("\n");
+                    break;
+                case 7:
+                    sb.append(dequeue.readFront()).append("\n");
+                    break;
+                case 8:
+                    sb.append(dequeue.readBack()).append("\n");
+                    break;
             }
-
-            if( listA.size == 0 && listB.size == 0 )
-                break;
-
-            count++;
         }
-        sb.delete(sb.length()-2,sb.length());
-        sb.append(">");
-        System.out.println(sb);
+        System.out.println(sb.toString());
     }
     static class CustomLinkedList{
         Node firstNode;
         Node lastNode;
         int size;
-        public CustomLinkedList(){
+        CustomLinkedList(){
             firstNode = null;
             lastNode = null;
             size = 0;
         }
-        public void add( int num ){
+        // 1.
+        public void addFront( int X ){
+            Node node = new Node(X);
             if( firstNode == null ){
-                Node node = new Node( num );
                 firstNode = node;
                 lastNode = node;
             }else {
-                Node node = new Node( num );
+                node.nextNode = firstNode;
+                firstNode.previousNode = node;
+                firstNode = node;
+            }
+            size++;
+        }
+        // 2.
+        public void addBack( int X ){
+            Node node = new Node(X);
+            if( firstNode == null ){
+                firstNode = node;
+                lastNode = node;
+            }else {
                 lastNode.nextNode = node;
+                node.previousNode = lastNode;
                 lastNode = node;
             }
             size++;
         }
-        public Node pop(){
-            if( firstNode == null )
-                return null;
-            Node node = firstNode;
-            firstNode = firstNode.nextNode;
-            size--;
-            return node;
+        // 3.
+        public int popFront(){
+            if( size == 0 )
+                return -1;
+            else if( size == 1 ){
+                Node node = firstNode;
+                firstNode = null;
+                lastNode = null;
+                size--;
+                return node.value;
+            }
+            else {
+                Node node = firstNode;
+                firstNode = firstNode.nextNode;
+                size--;
+                return node.value;
+            }
+        }
+        // 4.
+        public int popBack(){
+            if( size == 0 )
+                return -1;
+            else if( size == 1 ){
+                Node node = lastNode;
+                firstNode = null;
+                lastNode = null;
+                size--;
+                return node.value;
+            }
+            else {
+                Node node = lastNode;
+                lastNode = lastNode.previousNode;
+                size--;
+                return node.value;
+            }
+        }
+        // 5.
+        public int size(){
+            return size;
+        }
+        // 6.
+        public int isEmpty(){
+            if( size == 0 )
+                return 1;
+            else
+                return size;
+        }
+        // 7.
+        public int readFront(){
+            if( size == 0 )
+                return -1;
+            else
+                return firstNode.value;
+        }
+        // 8.
+        public int readBack(){
+            if( size == 0 )
+                return -1;
+            else
+                return lastNode.value;
         }
     }
     static class Node{
         int value;
         Node nextNode;
+        Node previousNode;
         Node( int value ){
             this.value = value;
-            nextNode = null;
+            this.nextNode = null;
+            this.previousNode = null;
         }
     }
 }
