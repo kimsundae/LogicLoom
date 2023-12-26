@@ -1,10 +1,13 @@
-package coddingProblem.backjoon.nowSolving;
+package coddingProblem.backjoon.categoryProblem.stack_queue_deque;
 
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.StringTokenizer;
-
-public class Main {
+/*
+* https://www.acmicpc.net/problem/2346 풍선 터뜨리기
+* */
+public class Deque_2346 {
 
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
