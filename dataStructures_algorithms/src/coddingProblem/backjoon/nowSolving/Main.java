@@ -4,92 +4,103 @@ package coddingProblem.backjoon.nowSolving;
 import java.io.*;
 import java.util.StringTokenizer;
 
+
 public class Main {
 
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
+        StringTokenizer st;
+        // 첫째 줄에 queuestack을 구성하는 자료구조의 개수 N이 주어진다.
         int N = Integer.parseInt(br.readLine());
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-
-        CustomLinkedList dequeue = new CustomLinkedList();
-
-        for( int i = 1; i <= N; i++ )
-            dequeue.add( i, Integer.parseInt(st.nextToken()));
-
-        Node node = dequeue.firstNode;
-        while( N-- > 0 ){
-
-            Node tempNode;
-            dequeue.delete(node);
-
-            if( node.value > 0 )
-                tempNode = dequeue.right( node.value, node );
+        //둘째 줄에 길이 N의 수열
+        //A가 주어진다. 0이면 큐 1이면 스택
+        st = new StringTokenizer(br.readLine(), " ");
+        DataStructure[] ds = new DataStructure[st.countTokens()];
+        for( int i = 0; i < N; i++){
+            int num = Integer.parseInt(st.nextToken());
+            if(num == 0)
+                ds[i] = new Queue();
             else
-                tempNode = dequeue.left( node.value, node );
-            sb.append(node.index).append(" ");
-            node = tempNode;
+                ds[i] = new Stack();
         }
-        System.out.println(sb.toString());
+
+        st = new StringTokenizer(br.readLine(), " ");
+        for( int i = 0; i < N; i++ )
+            ds[i].add(Integer.parseInt(st.nextToken()));
+
+        int M = Integer.parseInt(br.readLine());
+        st = new StringTokenizer(br.readLine(), " ");
+        for( int i = 0; i < N; i++ ){
+            int value = Integer.parseInt(st.nextToken());
+            ds[0].add(value);
+            int xn = ds[0].pop();
+            for( int j = 1; j < M; j++ ){
+                ds[j].add(xn);
+                xn = ds[j].pop();
+            }
+            sb.append(xn).append(" ");
+        }
+        System.out.println(sb);
     }
-    static class CustomLinkedList{
-        Node firstNode;
+    static interface DataStructure{
+        void add( int value );
+        int pop();
+    }
+    static class Stack implements DataStructure{
         Node lastNode;
-        CustomLinkedList(){
-            firstNode = null;
+        Stack(){
             lastNode = null;
         }
-        public void add( int index, int value ){
-            Node node = new Node( index, value );
-            if( firstNode == null ){
-                firstNode = node;
+        public void add( int value ){
+            Node node = new Node(value);
+            if(lastNode == null)
                 lastNode = node;
-                firstNode.nextNode = lastNode;
-                firstNode.previousNode = lastNode;
-            }else{
+            else{
                 lastNode.nextNode = node;
                 node.previousNode = lastNode;
-                node.nextNode = firstNode;
-                firstNode.previousNode = node;
                 lastNode = node;
             }
         }
-        public Node left( int moveIndex, Node node ){
-
-            while( moveIndex++ != 0 ){
-                node = node.previousNode;
-            }
-            return node;
-        }
-        public Node right( int moveIndex, Node node ){
-
-            while( moveIndex-- != 0){
-                node = node.nextNode;
-            }
-            return node;
-        }
-        public void delete( Node deleteNode ){
-            if( deleteNode == firstNode ){
-                firstNode = firstNode.nextNode;
-                firstNode.previousNode = lastNode;
-                lastNode.nextNode = firstNode;
-            }else if( deleteNode == lastNode ){
+        public int pop(){
+            Node node = lastNode;
+            if( lastNode.previousNode != null )
                 lastNode = lastNode.previousNode;
-                lastNode.nextNode = firstNode;
-                firstNode.previousNode = lastNode;
-            }else{
-                deleteNode.previousNode.nextNode = deleteNode.nextNode;
-                deleteNode.nextNode.previousNode = deleteNode.previousNode;
+            else
+                lastNode = null;
+            return node.value;
+        }
+    }
+    static class Queue implements DataStructure{
+        Node firstNode;
+        Queue(){
+            firstNode = null;
+        }
+        public void add( int value ){
+            Node node = new Node(value);
+            if( firstNode == null ) {
+                firstNode = node;
             }
+            else {
+                node.nextNode = firstNode;
+                firstNode = node;
+            }
+        }
+        public int pop(){
+            Node node = firstNode;
+            if(firstNode.nextNode != null) {
+                firstNode = firstNode.nextNode;
+            }
+            else
+                firstNode = null;
+            return node.value;
         }
     }
     static class Node{
-        int index;
         int value;
         Node nextNode;
         Node previousNode;
-        Node( int index, int value ){
-            this.index = index;
+        Node(int value){
             this.value = value;
             nextNode = null;
             previousNode = null;
