@@ -9,13 +9,14 @@ import java.util.*;
 public class PracticeProblem_02 {
 
     public int solve( int[] arr ){
-        // 추가 공간 O(logN)
-        Arrays.sort(arr);
-        // 효율성 O(N)
-        for( int i = 0; i < arr.length; i++ ){
-            if( arr[i] != i )
-                return i;
+        int fullSum = 0;
+        for( int i = 0; i <= arr.length; i++ ){
+            fullSum += i;
         }
-        return -1;
+        int sum = 0;
+        for( int i = 0; i < arr.length; i++ )
+            sum += arr[i];
+
+        return fullSum - sum;
     }
 }
