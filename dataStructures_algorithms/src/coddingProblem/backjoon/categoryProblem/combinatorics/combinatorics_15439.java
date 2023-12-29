@@ -1,10 +1,12 @@
-package coddingProblem.backjoon.nowSolving;
+package coddingProblem.backjoon.categoryProblem.combinatorics;
 
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-
-public class Main{
+/*
+*  https://www.acmicpc.net/problem/15439 베라의 패션
+* */
+public class combinatorics_15439 {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
