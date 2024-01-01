@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 /*
 *  https://www.acmicpc.net/problem/24723 녹색거탑
 * */
-public class combinatorics_24723 {
+public class Combinatorics_24723 {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int top = Integer.parseInt(br.readLine());
