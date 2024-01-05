@@ -1,4 +1,4 @@
-package coddingProblem.backjoon.categoryProblem.combinatorics;
+package coddingProblem.backjoon.categoryProblem.deepening2;
 
 
 import java.io.BufferedReader;
@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 /*
 * https://www.acmicpc.net/problem/1037 약수
 * */
-public class Combinatiorics_1037 {
+public class Deepening2_1037 {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
@@ -22,7 +22,7 @@ public class Combinatiorics_1037 {
 
         Arrays.sort(realPrime);
 
-        System.out.println( N == 1 ? realPrime[0] * realPrime[0] : realPrime[0] * realPrime[realPrime.length-1] );
+        System.out.println( realPrime[0] * realPrime[realPrime.length-1] );
 
     }
 }
