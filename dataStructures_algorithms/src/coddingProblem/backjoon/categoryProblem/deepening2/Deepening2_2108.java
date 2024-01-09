@@ -1,10 +1,12 @@
-package coddingProblem.backjoon.nowSolving;
+package coddingProblem.backjoon.categoryProblem.deepening2;
 
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-
-public class Main{
+/*
+*  https://www.acmicpc.net/problem/2108 통계학
+* */
+public class Deepening2_2108 {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
