@@ -1,10 +1,12 @@
-package coddingProblem.backjoon.nowSolving;
+package coddingProblem.backjoon.categoryProblem.recursion;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-
-public class Main{
+/*
+* https://www.acmicpc.net/problem/27433 팩토리얼2
+* */
+public class Recursion_27433 {
     public static long factorial( int N ){
         if( N == 1 || N == 0 )
             return 1;
