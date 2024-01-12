@@ -1,9 +1,11 @@
-package coddingProblem.backjoon.nowSolving;
+package coddingProblem.backjoon.categoryProblem.recursion;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-
-public class Main{
+/*
+* https://www.acmicpc.net/problem/25501 재귀의 귀재
+* */
+public class Recursion_25501 {
 
     public static String recursion( String S, int l, int r, int callCount ){
         callCount++;
