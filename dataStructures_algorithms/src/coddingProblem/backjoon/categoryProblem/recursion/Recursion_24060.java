@@ -1,9 +1,13 @@
-package coddingProblem.backjoon.nowSolving;
+package coddingProblem.backjoon.categoryProblem.recursion;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.StringTokenizer;
-
-public class Main {
+/*
+* https://www.acmicpc.net/problem/24060 알고리즘 수업 - 병합 정렬 1 풀이
+* */
+public class Recursion_24060 {
     int[] A;
     static int[] tmp;
     static int result = -1;
