@@ -1,78 +1,90 @@
 package coddingProblem.backjoon.nowSolving;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Main {
-    int[] A;
-    static int[] tmp;
-    static int result = -1;
-    static int cnt = 0;
+
+    private static int[] sorted;
+    static int count = 0;
     static int K;
-    public static void main(String[] args) throws IOException {
+
+    public static void main(String[] args)throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-        StringTokenizer st = new StringTokenizer(br.readLine());
-
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
         int N = Integer.parseInt(st.nextToken());
         K = Integer.parseInt(st.nextToken());
-        int[] A = new int[N];
-        tmp = new int[N];
+        st = new StringTokenizer(br.readLine(), " ");
+        int[] arr = new int[N]; int index = 0;
+        for(int i = 0; i < arr.length; i++)
+            arr[index++] = Integer.parseInt(st.nextToken());
 
-        st = new StringTokenizer(br.readLine());
+        merge_sort(arr);
+        if( K > count )
+            System.out.println(-1);
 
-        for(int i = 0; i < N; i++){
-            A[i] = Integer.parseInt(st.nextToken());
-        }
-
-        merge_sort(A, 0, N-1);
-
-        System.out.println(result);
+        System.out.println(Arrays.toString(arr));
     }
+    public static void merge_sort(int[] a) {
 
-    static void merge_sort(int A[], int p, int r){
-        if(cnt > K) return;
-        if(p < r){
-            int q = (p+r)/2;
-            merge_sort(A, p, q);
-            merge_sort(A,q+1, r);
-            merge(A, p, q, r);
-        }
+        sorted = new int[a.length];
+        merge_sort(a, 0, a.length - 1);
     }
+    private static void merge_sort(int[] a, int left, int right) {
 
-    static void merge(int Array[], int p, int q, int r){
-        int i = p;
-        int j = q + 1;
-        int t = 0;
+        for(int size = 1; size <= right; size += size) {
 
-        while(i <= q && j <= r){
-            if(Array[i] < Array[j]){
-                tmp[t++] = Array[i++];
-            }
-            else{
-                tmp[t++] = Array[j++];
+            for(int l = 0; l <= right - size; l += (2 * size)) {
+                int low = l;
+                int mid = l + size - 1;
+                int high = Math.min(l + (2 * size) - 1, right);
+                merge(a, low, mid, high);		// 병합작업
             }
         }
 
-        while(i <= q){
-            tmp[t++] = Array[i++];
-        }
+    }
+    private static void merge(int[] a, int left, int mid, int right) {
+        int l = left;
+        int r = mid + 1;
+        int idx = left;
 
-        while(j <= r){
-            tmp[t++] = Array[j++];
-        }
 
-        i = p;
-        t = 0;
-        while(i <= r){
-            cnt++;
-
-            if(cnt == K){
-                result = tmp[t];
-                break;
+        while(l <= mid && r <= right) {
+            if(a[l] <= a[r]) {
+                sorted[idx] = a[l];
+                idx++;
+                l++;
             }
+            else {
+                sorted[idx] = a[r];
+                idx++;
+                r++;
+            }
+        }
 
-            Array[i++] = tmp[t++];
+
+        if(l > mid) {
+            while(r <= right) {
+                sorted[idx] = a[r];
+                idx++;
+                r++;
+            }
+        }
+
+        else {
+            while(l <= mid) {
+                sorted[idx] = a[l];
+                idx++;
+                l++;
+            }
+        }
+
+        for(int i = left; i <= right; i++) {
+            if( ++count == K )
+                System.out.println(sorted[i]);
+            a[i] = sorted[i];
         }
     }
 }
