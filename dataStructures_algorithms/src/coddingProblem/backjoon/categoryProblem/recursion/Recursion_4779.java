@@ -1,9 +1,11 @@
-package coddingProblem.backjoon.nowSolving;
+package coddingProblem.backjoon.categoryProblem.recursion;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-
-public class Main {
+/*
+* https://www.acmicpc.net/problem/4779 칸토어 집합
+* */
+public class Recursion_4779 {
     static char[] kantoa;
 
     static void kantoa(int left, int right){
