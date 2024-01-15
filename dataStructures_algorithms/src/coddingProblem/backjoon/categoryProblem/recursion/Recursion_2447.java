@@ -1,9 +1,11 @@
-package coddingProblem.backjoon.nowSolving;
+package coddingProblem.backjoon.categoryProblem.recursion;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-
-public class Main {
+/*
+* https://www.acmicpc.net/problem/2447 별 찍기 - 10
+* */
+public class Recursion_2447 {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
