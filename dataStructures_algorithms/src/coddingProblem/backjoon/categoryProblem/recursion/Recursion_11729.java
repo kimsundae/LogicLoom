@@ -26,5 +26,6 @@ public class Recursion_11729 {
         int N = Integer.parseInt(br.readLine());
         hanoi( N, 1, 2, 3 );
         System.out.println(count + "\n" + sb.toString());
+
     }
 }
