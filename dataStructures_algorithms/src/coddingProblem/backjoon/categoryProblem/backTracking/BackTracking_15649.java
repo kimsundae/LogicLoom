@@ -8,11 +8,13 @@ import java.util.StringTokenizer;
 * https://www.acmicpc.net/problem/15649 N과 M (1)
 * */
 public class BackTracking_15649 {
+
     static int M;
     static int N;
     static int[] arr = new int[10];
     static boolean[] isUsed = new boolean[10];
     static StringBuilder sb = new StringBuilder();
+
     public static void solve( int index ){
         if( index == M ){
             for( int i = 0; i < M; i++ ){
