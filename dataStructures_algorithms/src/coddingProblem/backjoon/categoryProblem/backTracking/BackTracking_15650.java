@@ -37,6 +37,7 @@ public class BackTracking_15650 {
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
 
+
         solve( 0, 1 );
 
         System.out.println(sb);
