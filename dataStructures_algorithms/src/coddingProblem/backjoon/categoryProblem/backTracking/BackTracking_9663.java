@@ -1,9 +1,11 @@
-package coddingProblem.backjoon.nowSolving;
+package coddingProblem.backjoon.categoryProblem.backTracking;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-
-public class Main {
+/*
+* https://www.acmicpc.net/problem/9663 N-Queen
+* */
+public class BackTracking_9663 {
     static int N;
     static int count = 0;
     static int[] select;
