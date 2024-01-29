@@ -2,50 +2,91 @@ package coddingProblem.backjoon.nowSolving;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Main {
-    static int N;
-    static int count = 0;
-    static int[] select;
 
-    public static boolean match( int col, int row ){
+    static int[][] arr = new int[9][9];
 
-        for( int i = 0; i < row; i++ ){
+    public static void find( int row, int col ){
 
-            if( select[i] == col )
-                return false;
+        int sum = 0;
+        boolean flag = true;
 
-            if( i + select[i] == col+row )
-                return false;
-
-            int temp = row - i;
-            if( row - temp == i && col - temp == select[i] )
-                return false;
-
+        for( int tCol = 0; tCol < 9; tCol++ ){
+            if( col != tCol && arr[row][tCol] == 0 ){
+                flag = false;
+                break;
+            }
+            sum += arr[row][tCol];
         }
-        return true;
-    }
-    public static void solve( int col, int row, int depth ){
-        if( row >= N-1 ) {
-            count++;
+
+        if(flag) {
+            arr[row][col] = 45 - sum;
             return;
         }
-        for( int i = 0; i < N; i++){
 
-            if(match(i, row+1)) {
-                select[row + 1] = i;
-                solve(i, row + 1, depth+1);
+        sum = 0;
+        flag = true;
+
+        for( int tRow = 0; tRow < 9; tRow++ ){
+            if( row != tRow && arr[tRow][col] == 0 ){
+                flag = false;
+                break;
             }
+            sum += arr[tRow][col];
+        }
 
+        if(flag) {
+            arr[row][col] = 45 - sum;
+            return;
+        }
+
+        sum = 0;
+        flag = true;
+        int startRow = row/3*3, startCol = col/3*3;
+        for( int tRow = startRow; tRow <= startRow+2; tRow++ ){
+            for( int tCol = startCol; tCol <= startCol+2; tCol++ ){
+                if( row != tRow && col != tCol && arr[tRow][col] == 0 ){
+                    flag = false;
+                    break;
+                }
+                sum += arr[tRow][tCol];
+            }
+        }
+        if(flag) {
+            arr[row][col] = 45 - sum;
+            return;
         }
 
     }
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        N = Integer.parseInt( br.readLine() );
-        select = new int[N];
-        solve( 0, -1, -1);
-        System.out.println(count);
+        StringBuilder sb = new StringBuilder();
+        for (int row = 0; row < 9; row++) {
+
+            StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+
+            for (int col = 0; col < 9; col++)
+                arr[row][col] = Integer.parseInt(st.nextToken());
+
+        }
+
+
+        for (int row = 0; row < 9; row++) {
+            for (int col = 0; col < 9; col++) {
+                if (arr[row][col] == 0)
+                    find(row, col);
+                sb.append(arr[row][col]);
+                if (col != 8)
+                    sb.append(" ");
+            }
+            sb.append("\n");
+        }
+
+        System.out.println(sb);
+
     }
+
 }
