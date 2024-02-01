@@ -1,12 +1,14 @@
-package coddingProblem.backjoon.nowSolving;
+package coddingProblem.backjoon.categoryProblem.backTracking;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
-
-public class Main {
+/*
+* https://www.acmicpc.net/problem/2580 스도쿠
+* */
+public class BackTracking_2580 {
 
     static int[][] arr = new int[9][9];
     static List<String> zeroArr = new ArrayList<>();
